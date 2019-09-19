@@ -3,6 +3,8 @@
 set -x
 set -e
 
+rm -rf /opt/sonarqube/data/plugins/sonarqube-auth-openshift*.jar
+
 ## If the mounted data volume is empty, populate it from the default data
 cp -a /opt/sonarqube/data-init/* /opt/sonarqube/data/
 

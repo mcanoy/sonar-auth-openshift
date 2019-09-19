@@ -67,6 +67,27 @@ kubernetes.service=https://${env:KUBERNETES_SERVICE_HOST}:${env:KUBERNETES_SERVI
 
 See the example set up using the [OpenShift Applier](https://github.com/redhat-cop/openshift-applier) [here](example/README.md)
 
+## Development on OpenShift
+
+If you are making changes to this codebase, you'll want to build and deploy the changes to OpenShift. Follow these steps:
+
+1. Do a maven build in the base folder of this project
+
+```
+mvn clean package
+```
+
+2. Replace the released version of the plugin with the built version. If using the example
+ - update the example/Dockerfile to use the newly built file
+ - start the build using the oc client
+
+```
+oc start-build sonarqube --from-dir=. -n sonarqube-project-name
+```
+
+Ensure that the new jar has replace the old jar on the OpenShift PV
+
+
 ### License
 
 Licensed under the [Apache License](http://www.apache.org/licenses/LICENSE-2.0.txt)

@@ -9,13 +9,7 @@ This section contains an example for how this plugin can be used with Sonarqube
 
 ## Instructions
 
-1. Build and copy your built or downloaded plugin into the example folder
-
-```
-mvn clean package && cp target/sonar-auth-openshift-plugin-1.0.0.jar example/
-```
-
-2. Create a project in OpenShift
+1. Create a project in OpenShift
 
 ```
 oc new-project sonarqube
@@ -23,20 +17,16 @@ oc new-project sonarqube
 
 3. From the example folder run the prerequisites 
 
+* Note: This only needs to be run once to pull in the ansible role needed.
+
 ```
 ansible-galaxy install -r requirements.yml --roles-path=roles
 ```
 
-4. From the example folder run the ansible playbook which sets up the build and deploy for Sonarqube including a persistent volume and database
+4. From the example folder run the ansible playbook which sets up the build and deploy for Sonarqube including a persistent volume, database and a service account with the proper permissions
 
 ```
 ansible-playbook -i inventory/ apply.yml
-```
-
-5. From the base folder build the Docker container on OpenShift
-
-```
-oc start-build sonarqube --from-dir=. -n sonarqube
 ```
 
 ## Explore
