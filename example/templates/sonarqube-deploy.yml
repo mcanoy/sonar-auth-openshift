@@ -79,6 +79,8 @@ objects:
                 name: sonardb
           - name: FORCE_AUTHENTICATION
             value: "true"
+          - name: SONAR_ROLE_MAP
+            value: ${SONAR_ROLE_MAP}
           - name: PROXY_HOST
             value: ${PROXY_HOST}
           - name: PROXY_PORT
@@ -187,6 +189,10 @@ parameters:
     value: sonarqube
     description: The name of the route for sonarqube
     displayName: SonarQube Route Name
+  - name: SONAR_ROLE_MAP
+    value: sonarqube_admin=sonar-administrators,sonarqube_user=sonar-users
+    description: Mapping of OpenShift group to Sonar roles
+    displayName: Sonar Role Map
   - name: SONAR_AUTOCREATE_USERS
     value: 'false'
     description: When using an external authentication system, should SonarQube automatically create accounts for users?

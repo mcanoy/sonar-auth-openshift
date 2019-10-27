@@ -19,6 +19,7 @@ sonarqube:
     DATABASE_SERVICE_NAME: sonardb
   deploy:
     POSTGRES_DATABASE_NAME: "sonar"
+    SONAR_ROLE_MAP: "sonarqube_admin=sonar-administrators,sonarqube_user=sonar-users"
 
 openshift_cluster_content: 
 - object: project
