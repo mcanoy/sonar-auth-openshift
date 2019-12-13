@@ -31,6 +31,7 @@ deploy:
     on:
       tags: true
   - provider: script
+    skip_cleanup: true
     script: bash quay_io
     on:
       tags: true

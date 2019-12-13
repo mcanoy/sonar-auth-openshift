@@ -1,5 +1,5 @@
 cp $PLUGIN_JAR images/
 cd images
-docker build -t quay.io/mcanoy/sonarqube-auth-openshift-plugin:$TRAVIS_BRANCH -t quay.io/mcanoy/sonarqube-auth-openshift-plugin:latest
+docker build -t quay.io/mcanoy/sonarqube-auth-openshift-plugin:$TRAVIS_BRANCH -t quay.io/mcanoy/sonarqube-auth-openshift-plugin:latest .
 echo "$QUAY_BOT_PASSWORD" | docker login -u "$QUAY_BOT_USERNAME" --password-stdin quay.io
 docker push quay.io/mcanoy/sonarqube-auth-openshift-plugin
